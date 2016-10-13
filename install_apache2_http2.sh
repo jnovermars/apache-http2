@@ -17,19 +17,26 @@ version_check() {
 enable_src_in_sources_lists() {
     sed -i -- 's/#deb-src/deb-src/g' /etc/apt/sources.list
     sed -i -- 's/# deb-src/deb-src/g' /etc/apt/sources.list
-    apt-get update
+    apt update
 }
 install_dependencies() {
-    apt-get install -y  devscripts build-essential fakeroot
-    apt-get install -y  apache2
-    apt-get install -y  libnghttp2-dev
+    apt install -y devscripts build-essential fakeroot
+    apt install -y apache2
+    echo "Run apt source apache2"
+    apt install -y libnghttp2-dev
 }
 get_apache_build() {
     cd /tmp
     mkdir apache2-build
     cd apache2-build
-    apt-get source apache2
-    apt-get build-dep apache2
+    
+    echo "Run apt source apache2"
+    apt source apache2
+    
+    echo "apt build-dep apache2"
+    apt build-dep -y apache2
+    
+    # Build apache-2.4.18
     cd apache-2.4.18
     fakeroot debian/rules binary
 }
