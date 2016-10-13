@@ -13,7 +13,6 @@ version_check() {
         echo "ERROR: This script must be run on Ubuntu 16.04 or 16.04.1"
         exit 1;
     fi
-    exit 1;
 }
 enable_src_in_sources_lists() {
     sed -i -- 's/#deb-src/deb-src/g' /etc/apt/sources.list
