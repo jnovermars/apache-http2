@@ -10,8 +10,8 @@ Check out this git repo and run the install_apache2_http2.sh
 Or Run (wget is required):
 
     sudo apt install -y wget 
-    mkdir /tmp/build_apache
-    cd /tmp/build_apache
+    mkdir /tmp/apache2-build
+    cd /tmp/apache2-build
     wget https://raw.githubusercontent.com/xleeuwx/apache-http2/master/install_apache2_http2.sh -O /tmp/build_apache/install_apache2_http2.sh
     sudo chmod +x install_apache2_http2.sh
     sudo bash install_apache2_http2.sh
