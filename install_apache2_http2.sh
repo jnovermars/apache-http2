@@ -1,17 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 root_check() {
     if [[ $EUID -ne 0 ]];
     then
         echo "ERROR: This script must be run as root"
-        exit 1
+        exit 1;
     fi
 }
 version_check() {
-    if [[ lsb_release -r -s -ne "16.04" ]]
+    if [[ "$(lsb_release -r -s)" != "16.04" ]]
     then
         echo "ERROR: This script must be run on Ubuntu 16.04 or 16.04.1"
+        exit 1;
     fi
+    exit 1;
 }
 enable_src_in_sources_lists() {
     sed -i -- 's/#deb-src/deb-src/g' /etc/apt/sources.list
@@ -40,7 +42,7 @@ reload_apache2() {
     a2enmod http2
     service apache2 restart
 }
-run() {
+run_installer() {
     root_check
     version_check
     enable_src_in_sources_lists
@@ -50,4 +52,4 @@ run() {
     reload_apache2
 }
 
-sudo run
+run_installer
