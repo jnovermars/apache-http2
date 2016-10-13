@@ -12,7 +12,7 @@ Or Run (wget is required):
     sudo apt install -y wget 
     mkdir /tmp/apache2-build
     cd /tmp/apache2-build
-    wget https://raw.githubusercontent.com/xleeuwx/apache-http2/master/install_apache2_http2.sh -O /tmp/build_apache/install_apache2_http2.sh
+    wget https://raw.githubusercontent.com/xleeuwx/apache-http2/master/install_apache2_http2.sh -O /tmp/apache2-build/install_apache2_http2.sh
     sudo chmod +x install_apache2_http2.sh
     sudo bash install_apache2_http2.sh
     
